@@ -29,7 +29,7 @@ final class ViewFileHelper
             return;
         }
 
-        $this->viewDirectories = [resource_path('views')]; // @phpstan-ignore-line
+        $this->viewDirectories = array_unique([resource_path('views'), $fileHelper->absolutizePath('resources/views')]); // @phpstan-ignore-line
     }
 
     public function getAllViewFilePaths(): Generator
